@@ -17,4 +17,4 @@ s3_mfa_delete                    = false
 s3_kms_key_arn                   = "AES256"
 s3_shared_principal_list         = ["*"]
 enable_cloudwatch_metric_alarm   = true
-s3_force_destroy                 = true
+force_destroy                    = true

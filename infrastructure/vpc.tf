@@ -12,12 +12,12 @@ module "vpc" {
   azs              = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e"]
   public_subnets   = ["10.0.15.0/28", "10.0.15.32/28", "10.0.15.64/28", "10.0.15.96/28", "10.0.15.128/28"]
   private_subnets  = ["10.0.15.16/28", "10.0.15.48/28", "10.0.15.80/28", "10.0.15.112/28", "10.0.15.144/28"]
-	database_subnets = ["10.0.15.160/28", "10.0.15.176/28", "10.0.15.192/28", "10.0.15.208/28", "10.0.15.224/28"]
+  database_subnets = ["10.0.15.160/28", "10.0.15.176/28", "10.0.15.192/28", "10.0.15.208/28", "10.0.15.224/28"]
 
-	create_database_subnet_route_table = true
+  create_database_subnet_route_table = true
 
-	enable_nat_gateway = false
-  single_nat_gateway = false
+  enable_nat_gateway = true
+  single_nat_gateway = true
   enable_vpn_gateway = false
 
   # required for endpoints

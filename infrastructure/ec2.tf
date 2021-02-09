@@ -84,7 +84,7 @@ resource "aws_instance" "app" {
     encrypted   = true
   }
 
-	tags = {"Name": "app"}
+  tags = { "Name" : "app" }
 }
 
 resource "aws_instance" "db" {
@@ -117,7 +117,7 @@ resource "aws_instance" "db" {
     encrypted   = true
   }
 
-	tags = {"Name": "db"}
+  tags = { "Name" : "db" }
 }
 
 resource "aws_instance" "bastion" {
@@ -179,7 +179,7 @@ resource "aws_instance" "bastion" {
   }
 
   depends_on = [aws_instance.app, aws_instance.db]
-	tags = {"Name": "bastion"}
+  tags       = { "Name" : "bastion" }
 }
 
 resource "aws_iam_instance_profile" "profile" {

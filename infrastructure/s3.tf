@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "cloudtrail" {
   #checkov:skip=CKV_AWS_21:Versioning
   bucket        = var.cloudtrail_bucket_name
   acl           = var.s3_bucket_acl
-  force_destroy = var.s3_force_destroy
+  force_destroy = var.force_destroy
 
   server_side_encryption_configuration {
     rule {
@@ -45,7 +45,7 @@ resource "aws_s3_bucket" "log" {
   #checkov:skip=CKV_AWS_21:Versioning
   bucket        = var.log_bucket_name
   acl           = "log-delivery-write"
-  force_destroy = var.s3_force_destroy
+  force_destroy = var.force_destroy
 
   server_side_encryption_configuration {
     rule {

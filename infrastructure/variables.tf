@@ -93,9 +93,9 @@ variable "s3_mfa_delete" {
   default     = false
 }
 
-variable "s3_force_destroy" {
+variable "force_destroy" {
   type        = bool
-  description = "Empty S3 buckets before deleting."
+  description = "Force delete resources."
   default     = true
 }
 
