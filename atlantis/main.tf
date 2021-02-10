@@ -52,14 +52,24 @@ module "atlantis" {
 	private_subnet_ids = data.terraform_remote_state.infra.outputs.private_subnet_ids
 	public_subnet_ids  = data.terraform_remote_state.infra.outputs.public_subnet_ids
 
-  # DNS (without trailing dot)
-  route53_zone_name = data.terraform_remote_state.infra.outputs.route53_zone_name
-
-  # ACM (SSL certificate) - Specify ARN of an existing certificate or new one will be created and validated using Route53 DNS
-  certificate_arn = "arn:aws:acm:eu-west-1:135367859851:certificate/70e008e1-c0e1-4c7e-9670-7bb5bd4f5a84"
+  route53_zone_name = aws_route53_zone.atlantis.name
 
   # Atlantis
-  atlantis_github_user       = "atlantis-bot"
-  atlantis_github_user_token = "examplegithubtoken"
-  atlantis_repo_whitelist    = ["github.com/terraform-aws-modules/*"]
+  # atlantis_github_user       = "atlantis-bot"
+  # atlantis_github_user_token = "examplegithubtoken"
+  atlantis_repo_whitelist    = [
+		"github.com/2ndWatch/cco-tf-demo"
+	]
+
+	depends_on = [aws_route53_zone.atlantis]
 }
+
+resource "aws_route53_zone" "atlantis" {
+  name          = "ccotfdemo.com"
+  force_destroy = true
+}
+
+# output "route_53_zone" {
+#   description = "Route53 zone for Atlantis"
+#   value       = data.terraform_remote_state.infra.outputs.route_53_zone
+# }
