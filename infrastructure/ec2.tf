@@ -65,15 +65,7 @@ resource "aws_instance" "app" {
   ebs_block_device {
     device_name           = "/dev/sdb"
     volume_type           = "standard"
-    volume_size           = 600
-    delete_on_termination = var.ec2_delete_volume_on_termination
-    encrypted             = true
-  }
-
-  ebs_block_device {
-    device_name           = "/dev/sdc"
-    volume_type           = "standard"
-    volume_size           = 600
+    volume_size           = 100
     delete_on_termination = var.ec2_delete_volume_on_termination
     encrypted             = true
   }
@@ -98,15 +90,7 @@ resource "aws_instance" "db" {
   ebs_block_device {
     device_name           = "/dev/sdb"
     volume_type           = "gp2"
-    volume_size           = 240
-    delete_on_termination = var.ec2_delete_volume_on_termination
-    encrypted             = true
-  }
-
-  ebs_block_device {
-    device_name           = "/dev/sdc"
-    volume_type           = "gp2"
-    volume_size           = 240
+    volume_size           = 100
     delete_on_termination = var.ec2_delete_volume_on_termination
     encrypted             = true
   }

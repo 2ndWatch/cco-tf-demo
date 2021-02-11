@@ -3,6 +3,7 @@ automerge: false
 projects:
   - name: cco-tf-demo
     dir: infrastructure
+    workflow: staging
     workspace: default
     terraform_version: v0.14.6
     autoplan:
@@ -13,9 +14,6 @@ workflows:
   staging:
     plan:
       steps:
+        - init
         - plan:
-            extra_args: ["-var-file", "staging.tfvars"]
-    apply:
-      steps:
-        - apply:
             extra_args: ["-var-file", "staging.tfvars"]
