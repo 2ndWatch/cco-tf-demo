@@ -3,6 +3,7 @@ automerge: false
 projects:
   - name: cco-tf-demo
     dir: infrastructure
+    workflow: staging
     workspace: default
     terraform_version: v0.14.6
     autoplan:
