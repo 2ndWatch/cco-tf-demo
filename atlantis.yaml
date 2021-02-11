@@ -1,0 +1,11 @@
+version: 3
+automerge: false
+projects:
+  - name: cco-tf-demo
+    dir: infrastructure
+    workspace: default
+    terraform_version: v0.14.6
+    autoplan:
+      when_modified: ["*.tf", "../modules/**.tf"]
+      enabled: true
+    apply_requirements: [mergeable]
