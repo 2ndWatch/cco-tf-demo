@@ -1,5 +1,7 @@
 version: 3
+
 automerge: false
+
 projects:
   - name: cco-tf-demo
     dir: infrastructure
@@ -10,6 +12,7 @@ projects:
       when_modified: ["*.tf", "../modules/**.tf"]
       enabled: true
     apply_requirements: [mergeable]
+
 workflows:
   staging:
     plan:
