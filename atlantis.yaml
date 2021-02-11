@@ -9,3 +9,14 @@ projects:
       when_modified: ["*.tf", "../modules/**.tf"]
       enabled: true
     apply_requirements: [mergeable]
+workflows:
+  staging:
+    plan:
+      steps:
+        - init
+        - plan:
+            extra_args: ["-var-file", "staging.tfvars"]
+    apply:
+      steps:
+        - apply:
+            extra_args: ["-var-file", "staging.tfvars"]
