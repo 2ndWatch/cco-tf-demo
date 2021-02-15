@@ -62,14 +62,6 @@ resource "aws_instance" "app" {
   iam_instance_profile   = aws_iam_instance_profile.profile.name
   key_name               = var.ec2_app_keypair
 
-  ebs_block_device {
-    device_name           = "/dev/sdb"
-    volume_type           = "standard"
-    volume_size           = 100
-    delete_on_termination = var.ec2_delete_volume_on_termination
-    encrypted             = true
-  }
-
   root_block_device {
     volume_type = "gp2"
     volume_size = "80"
@@ -86,14 +78,6 @@ resource "aws_instance" "db" {
   subnet_id              = element(module.vpc.private_subnets, 0)
   iam_instance_profile   = aws_iam_instance_profile.profile.name
   key_name               = var.ec2_db_keypair
-
-  ebs_block_device {
-    device_name           = "/dev/sdb"
-    volume_type           = "gp2"
-    volume_size           = 100
-    delete_on_termination = var.ec2_delete_volume_on_termination
-    encrypted             = true
-  }
 
   root_block_device {
     volume_type = "gp2"
