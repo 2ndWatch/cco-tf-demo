@@ -1,6 +1,6 @@
 region                           = "us-east-1"
 environment                      = "staging"
-app_instance_type                = "t3.small"
+app_instance_type                = "t3.medium"
 db_instance_type                 = "t3.small"
 bastion_instance_type            = "t3a.micro"
 ec2_delete_volume_on_termination = true
