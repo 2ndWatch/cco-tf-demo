@@ -109,4 +109,4 @@ ENV/
 .terraform/
 
 # Adding these will break Atlantis
-*.terraform.locl.hcl
+*.terraform.lock.hcl*
