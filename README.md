@@ -17,9 +17,9 @@
 
 
 ### 2. Deploy Atlantis
-1. Configure the following environment variables so you are not passing these variables as plaintext in to this Github repository:
-	* `export TF_VAR_github_user_token=<[how to generate github user tokens](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token)>`
-	* `export TF_VAR_github_webhook_secret=<generate secret [here](https://www.browserling.com/tools/random-string)>`
+1. Configure the following environment variables so you are not passing these variables as plaintext in to this Github repository. Instructions for creating a Github user token can be found [here](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/#creating-a-token), while instructions for generating the webhook secret can be found [here](https://www.browserling.com/tools/random-string):
+	* `export TF_VAR_github_user_token=<token>`
+	* `export TF_VAR_github_webhook_secret=<secret>`
 2. Change into the Atlantis directory using `cd atlantis`.
 3. `terraform plan` (no environment file this time as it's using the infrastructure you set up above)
 4. `terraform apply`
