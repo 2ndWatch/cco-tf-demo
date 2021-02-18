@@ -61,7 +61,7 @@ module "atlantis" {
   ecs_task_cpu                 = 512
   ecs_task_memory              = 1024
   container_memory_reservation = 256
-  ecs_fargate_spot             = true
+  ecs_fargate_spot             = false
   policies_arn = [
     "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
     "arn:aws:iam::aws:policy/PowerUserAccess",
