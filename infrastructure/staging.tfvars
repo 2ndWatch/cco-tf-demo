@@ -1,7 +1,7 @@
 region                           = "us-east-1"
 environment                      = "staging"
 app_instance_type                = "t3.small"
-db_instance_type                 = "t3.small"
+db_instance_type                 = "t3.medium"
 bastion_instance_type            = "t3a.micro"
 ec2_delete_volume_on_termination = true
 ec2_app_keypair                  = "app-staging-key"
