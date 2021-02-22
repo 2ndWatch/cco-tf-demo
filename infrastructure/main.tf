@@ -15,7 +15,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = data.aws_region.current.name
   assume_role {
     role_arn = "arn:aws:iam::966064235577:role/Atlantis"
   }
