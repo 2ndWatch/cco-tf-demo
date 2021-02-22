@@ -16,6 +16,9 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::966064235577:role/CrossAccountAtlantis"
+  }
 }
 
 data "aws_caller_identity" "current" {}
